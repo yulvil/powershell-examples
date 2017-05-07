@@ -1,6 +1,8 @@
 # powershell-examples
 Powershell Examples
 
+http://ramblingcookiemonster.github.io/images/Cheat-Sheets/powershell-cheat-sheet.pdf
+
 ## Help
 
 ```
