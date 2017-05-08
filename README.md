@@ -8,12 +8,16 @@ http://ramblingcookiemonster.github.io/images/Cheat-Sheets/powershell-cheat-shee
 ```
 update-help
 
-get-help *comparison*
+Get-Help about*
+Get-Help about_commonparameters
 
-get-help -showwindow get-service   # v3
+Get-Help *comparison*
+
+Get-Help -showwindow get-service   # v3
 
 get-command *cert*
 get-command *-Object
+get-command -Module PKI,WebAdministration
 
 get-psdrive | get-member
 ```
