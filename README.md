@@ -102,6 +102,19 @@ $v = '{"abc": 123, "def": 456}' | ConvertFrom-Json
 (Invoke-RestMethod "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson").features
 ```
 
+## Certificates
+
+```
+get-command -Module PKI
+get-command *cert* | sort -Property Source
+
+Get-ChildItem Cert:\CurrentUser\My\   | where {$_.Thumbprint -eq 'B3C28A5D56141F6107AC0F49CDE7ED50B940E39E'} | Test-Certificate -Policy SSL
+Get-ChildItem Cert:\LocalMachine\My\ | Remove-Item -Confirm
+
+cd cert:\
+dir -recurse
+```
+
 ## GUI
 
 ```
