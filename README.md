@@ -87,6 +87,11 @@ $res = Receive-Job $j
 ```
 $myxml = [xml](cat E:\data\xml\metadata.xml)
 $myxml | gm
+
+$myxml = [xml]'<a><b>123</b><b>456</b></a>'
+$myxml.a.b[1]           # 456
+
+$e = $myxml.CreateElement('c')
 ```
 
 ## JSON
