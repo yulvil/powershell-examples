@@ -18,6 +18,8 @@ Get-Help -showwindow get-service   # v3
 get-command *cert*
 get-command *-Object
 get-command -Module PKI,WebAdministration
+get-command -verb new
+get-command -noun proc*
 
 get-psdrive | get-member
 ```
