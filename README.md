@@ -72,6 +72,15 @@ foreach ($var in $s) { $var } # scalar handled as a collection
 # -> You cannot call a method on a null-valued expression.
 foreach ($file in @{}) {$item.ToString()}
 ```
+## Input
+
+```
+Pipeline: Get-Process accepts input object with PropertyName=Name
+"a*","b*","c*" | select @{n='Name';e={$_}} | Get-Process
+
+Via parenthesis
+Get-WmiObject -Class Win32_BIOS -ComputerName ($mylist = @('mach1.domain.com','mach2.domain.com'))
+```
 
 ## Jobs
 
