@@ -6,6 +6,10 @@ http://ramblingcookiemonster.github.io/images/Cheat-Sheets/powershell-cheat-shee
 ## Help
 
 ```
+$PSVersionTable
+
+get-module -listavailable
+
 update-help
 
 Get-Help about*
