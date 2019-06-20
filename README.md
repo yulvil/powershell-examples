@@ -21,6 +21,10 @@ get-command -Module PKI,WebAdministration
 get-command -verb new
 get-command -noun proc*
 
+get-alias
+
+Get-Process (gps, ps)
+
 get-psdrive | get-member
 ```
 
@@ -80,6 +84,24 @@ Pipeline: Get-Process accepts input object with PropertyName=Name
 
 Via parenthesis
 Get-WmiObject -Class Win32_BIOS -ComputerName ($mylist = @('mach1.domain.com','mach2.domain.com'))
+```
+
+## Formatting
+
+```
+Get-Process explorer | format-list *
+get-service | get-member      # alias gm
+get-service | Select-Object Name,Status
+get-service | export-csv -Path e:\services.csv
+get-service | out-gridview
+
+get-process | where {$_.handles -gt 1000}
+get-process | where handles -gt 1000 | sort handles  # v3
+
+get-process | select -ExpandProperty name
+(get-process).name   # v3
+
+dir e:\temp | select name,length | sort length
 ```
 
 ## Jobs
@@ -142,4 +164,20 @@ $wshell.Popup("Operation Completed",0,"Done",0x1)
 
 ```
 Get-WmiObject -List | sort
+```
+
+## Active Directory
+
+```
+(New-Object DirectoryServices.DirectorySearcher "ObjectClass=user").FindAll() | Select path
+
+([ADSISearcher]"Name=John*").FindAll() | Select Path
+
+([ADSISearcher]"(|(Name=John*)(Name=Jane*))").FindAll() | Select Path
+
+([ADSISearcher]"(Name=John*)").FindAll() | Select Properties | %{ $_.properties}
+
+([ADSISearcher]"(Name=John*)").FindAll() | Select -ExpandProperty Properties
+
+([ADSISearcher]"(Name=Xa*)").FindOne().Properties.directreports
 ```
